@@ -12,6 +12,7 @@ import {
   Res,
 } from '@nestjs/common';
 import { Request } from 'express';
+import { CreateUserDto } from './dtos/create-user.dto';
 
 @Controller('users') // users is the url param
 // Resourses
@@ -47,9 +48,10 @@ export class UsersController {
   //   }
 
   // @Body => catch req body directly without using @Req
-  createUser(@Body() userData: any): string {
-    // Logic to be implemented in services
-    return userData;
+  createUser(@Body() userData: CreateUserDto) {
+    // DTO => Data Transfer Object [Expect The Respose Data]
+
+    return userData; // Logic to be implemented in services
   }
 
   @Patch()
